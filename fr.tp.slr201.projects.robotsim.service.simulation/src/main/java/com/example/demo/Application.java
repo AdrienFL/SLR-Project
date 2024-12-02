@@ -13,6 +13,7 @@ import com.fasterxml.jackson.databind.jsontype.PolymorphicTypeValidator;
 import fr.tp.inf112.projects.robotsim.model.Component;
 import fr.tp.inf112.projects.robotsim.model.Factory;
 import fr.tp.inf112.projects.robotsim.model.shapes.PositionedShape;
+import server.RequestProcessor;
 import server.WebServer;
 
 import java.io.InputStream;
@@ -42,7 +43,7 @@ public class Application {
 	
 	private static HashMap<String, Factory> factories = new HashMap<>();
 	
-	WebServer server = new WebServer();
+	
 	
 	private static ObjectMapper objectMapper;
 	
@@ -59,7 +60,10 @@ public class Application {
 				.allowIfSubType(LinkedHashSet.class.getName())
 				.build();
 		
-		factories.put("1", fr.tp.inf112.projects.robotsim.app.TestRobotSimSerializationJSON.createFactory());
+		
+		WebServer server = new WebServer();
+			
+		
 		objectMapper.activateDefaultTyping(typeValidator, ObjectMapper.DefaultTyping.NON_FINAL);
 		
 		SpringApplication.run(Application.class, args);

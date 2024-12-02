@@ -206,7 +206,6 @@ public class Factory extends Component implements Canvas, Observable {
 		components = canvasModel.components;
 		simulationStarted = canvasModel.simulationStarted;
 		setId(canvasModel.getId());
-		LOGGER.info("updated canvas : " + this.toString());
 
 		notifyObservers();
 

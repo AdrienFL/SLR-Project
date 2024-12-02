@@ -95,6 +95,7 @@ public class TestRobotSimSerializationJSON {
 		robot2.addTargetComponent(machine1);
 		robot2.addTargetComponent(machine2);
 		robot2.addTargetComponent(new Conveyor(factory, conveyorShape, "Conveyor 1"));
+		
 		return factory;
 	}
 	
