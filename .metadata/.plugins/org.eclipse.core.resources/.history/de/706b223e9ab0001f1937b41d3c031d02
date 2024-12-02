@@ -1,0 +1,125 @@
+package fr.tp.inf112.projects.robotsim.app;
+
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import fr.tp.inf112.projects.canvas.controller.Observer;
+import fr.tp.inf112.projects.canvas.model.Canvas;
+import fr.tp.inf112.projects.robotsim.model.Factory;
+import fr.tp.inf112.projects.robotsim.model.FactoryPersistenceManager;
+import fr.tp.inf112.projects.robotsim.model.RemoteFactoryPersistenceManager;
+
+public class RemoteSimulatorController extends SimulatorController {
+
+	private RemoteFactoryPersistenceManager persistenceManager;
+	
+	
+	public RemoteSimulatorController(RemoteFactoryPersistenceManager persistenceManager) {
+		super(persistenceManager);
+
+	}
+	
+
+	@Override
+	public void startAnimation() {
+		try {
+			HttpClient httpClient = HttpClient.newHttpClient();
+			final URI uri = new URI("http", null, "localhost", 8080, "/start/" + getCanvas().getId(), null, null);
+			HttpRequest request = HttpRequest.newBuilder().uri(uri).GET().build();
+			HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+			updateViewer();
+		} catch (URISyntaxException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+		
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void stopAnimation() {
+		HttpClient httpClient = HttpClient.newHttpClient();
+
+		String Id =  getCanvas().getId();
+		URI uri;
+		try {
+			uri = new URI("http", null, "localhost", 8080, "/stop/" + Id, null, null);
+			HttpRequest request = HttpRequest.newBuilder().uri(uri).GET().build();
+			HttpResponse<String> response;
+			try {
+				response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+				ObjectMapper objectMapper = new ObjectMapper();
+				Factory factory;
+				factory = objectMapper.readValue(response.body(), Factory.class);
+			} catch (IOException | InterruptedException e) {
+				e.printStackTrace();
+			}
+		} catch (URISyntaxException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private Factory getFactory() {
+		HttpClient httpClient = HttpClient.newHttpClient();
+
+		String Id =  getCanvas().getId();
+		URI uri;
+		try {
+			uri = new URI("http", null, "localhost", 8080, "/getFactory/" + Id, null, null);
+			HttpRequest request = HttpRequest.newBuilder().uri(uri).GET().build();
+			HttpResponse<String> response;
+			try {
+				response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+				ObjectMapper objectMapper = new ObjectMapper();
+				Factory factory;
+				factory = objectMapper.readValue(response.body(), Factory.class);
+				return factory;
+			} catch (IOException | InterruptedException e) {
+				e.printStackTrace();
+			}
+		} catch (URISyntaxException e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+		
+	}
+
+	private void updateViewer() throws InterruptedException, URISyntaxException, IOException{
+		while(((Factory) getCanvas()).isSimulationStarted()) {
+			final Factory remoteFactoryModel = getFactory();
+			update(remoteFactoryModel);
+			Thread.sleep(100);
+		}
+	}
+	
+
+	
+	@Override
+	public void setCanvas(final Canvas canvasModel) {
+		final List<Observer> observers = ((Factory) getCanvas()).getObservers();
+		
+		super.setCanvas(canvasModel);
+		
+		for(final Observer observer : observers) {
+			((Factory) getCanvas()).addObserver(observer);
+		}
+		
+		((Factory) getCanvas()).notifyObservers();
+	}
+}

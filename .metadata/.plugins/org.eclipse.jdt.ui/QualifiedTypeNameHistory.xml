@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="fr.tp.inf112.projects.robotsim.model.Position"/>
+    <fullyQualifiedTypeName name="fr.tp.inf112.projects.robotsim.model.shapes.CircularShape"/>
+    <fullyQualifiedTypeName name="java.util.logging.Logger"/>
+    <fullyQualifiedTypeName name="com.sun.tools.javac.Main"/>
+    <fullyQualifiedTypeName name="java.io.InputStreamReader"/>
+    <fullyQualifiedTypeName name="java.io.InputStream"/>
+    <fullyQualifiedTypeName name="java.io.BufferedReader"/>
+    <fullyQualifiedTypeName name="java.io.PrintWriter"/>
+    <fullyQualifiedTypeName name="java.net.InetSocketAddress"/>
+    <fullyQualifiedTypeName name="server.ClientProcessor"/>
+    <fullyQualifiedTypeName name="java.io.Reader"/>
+    <fullyQualifiedTypeName name="java.io.BufferedInputStream"/>
+    <fullyQualifiedTypeName name="java.io.OutputStream"/>
+    <fullyQualifiedTypeName name="java.io.ObjectInputStream"/>
+    <fullyQualifiedTypeName name="fr.tp.inf112.projects.robotsim.model.ChargingStation"/>
+    <fullyQualifiedTypeName name="fr.tp.inf112.projects.robotsim.model.FactoryPersistenceManager"/>
+    <fullyQualifiedTypeName name="java.lang.AbstractMethodError"/>
+    <fullyQualifiedTypeName name="fr.tp.inf112.projects.robotsim.model.path.AbstractFactoryPathFinder"/>
+    <fullyQualifiedTypeName name="fr.tp.inf112.projects.robotsim.model.path.CustomDijkstraFactoryPathFinder"/>
+    <fullyQualifiedTypeName name="fr.tp.inf112.projects.robotsim.model.path.JGraphTDijkstraFactoryPathFinder"/>
+    <fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.JsonManagedReference"/>
+    <fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.JsonBackReference"/>
+    <fullyQualifiedTypeName name="fr.tp.inf112.projects.robotsim.app.TestRobotSimSerializationJSON"/>
+    <fullyQualifiedTypeName name="com.fasterxml.jackson.databind.jsontype.PolymorphicTypeValidator"/>
+    <fullyQualifiedTypeName name="com.fasterxml.jackson.databind.jsontype.BasicPolymorphicTypeValidator"/>
+    <fullyQualifiedTypeName name="fr.tp.inf112.projects.robotsim.model.shapes.PositionedShape"/>
+    <fullyQualifiedTypeName name="fr.tp.inf112.projects.robotsim.model.Component"/>
+    <fullyQualifiedTypeName name="fr.tp.inf112.projects.canvas.model.impl.BasicVertex"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.util.LinkedHashSet"/>
+    <fullyQualifiedTypeName name="fr.tp.inf112.projects.robotsim.model.Factory"/>
+    <fullyQualifiedTypeName name="fr.tp.inf112.projects.robotsim.model.shapes.RectangularShape"/>
+    <fullyQualifiedTypeName name="fr.tp.inf112.projects.robotsim.model.Room.WALL"/>
+    <fullyQualifiedTypeName name="java.net.http.HttpClient"/>
+    <fullyQualifiedTypeName name="java.net.http.HttpRequest"/>
+    <fullyQualifiedTypeName name="java.net.http.HttpResponse"/>
+    <fullyQualifiedTypeName name="java.net.http.HttpResponse.BodyHandlers"/>
+    <fullyQualifiedTypeName name="com.fasterxml.jackson.databind.ObjectMapper"/>
+    <fullyQualifiedTypeName name="org.springframework.boot.autoconfigure.http.client.HttpClientProperties.Factory"/>
+    <fullyQualifiedTypeName name="java.lang.InterruptedException"/>
+    <fullyQualifiedTypeName name="java.net.URISyntaxException"/>
+    <fullyQualifiedTypeName name="java.io.IOException"/>
+    <fullyQualifiedTypeName name="fr.tp.inf112.projects.robotsim.app.RemoteSimulatorController"/>
+    <fullyQualifiedTypeName name="fr.tp.inf112.projects.robotsim.model.RemoteFactoryPersistenceManager"/>
+</qualifiedTypeNameHistroy>

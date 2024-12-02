@@ -1,0 +1,46 @@
+package com.example.demo;
+
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.http.client.HttpClientProperties.Factory;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+
+@SpringBootApplication
+public class Application {
+
+	public static void main(String[] args) {
+		SpringApplication.run(Application.class, args);
+		
+	}
+	
+	public Factory getFactory() {
+		HttpClient httpClient = HttpClient.newHttpClient();
+		
+		try {
+			final URI uri = new URI("http", null, "localhost", 8080, "/simulation/test.factory", null, null);
+			HttpRequest request = HttpRequest.newBuilder().uri(uri).GET().build();
+			HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+			ObjectMapper objectMapper = new ObjectMapper();
+			Factory factory = objectMapper.readValue(response.body(), Factory.class);
+			return factory;
+			
+		} catch (URISyntaxException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+}

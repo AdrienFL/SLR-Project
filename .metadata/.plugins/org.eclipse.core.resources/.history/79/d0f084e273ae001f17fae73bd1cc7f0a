@@ -1,0 +1,46 @@
+package server;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.PrintWriter;
+import java.net.Socket;
+
+public class RequestProcessor implements Runnable {
+
+	private Socket socket;
+	
+	public RequestProcessor(Socket socket) {
+		this.socket = socket;
+	}
+	
+	@Override
+	public void run() {
+		try {
+			InputStream inpStr = socket.getInputStream();
+			InputStreamReader strReader = new InputStreamReader(inpStr);
+			BufferedReader buffReader = new BufferedReader(strReader);
+			
+			String message;
+			message = buffReader.readLine();
+			
+			OutputStream outStr = socket.getOutputStream();
+			PrintWriter writer = new PrintWriter(outStr, true);
+			System.out.println("aaaasdadazz");
+
+			writer.write("My message :" + message);
+			
+		} catch(IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				socket.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+}

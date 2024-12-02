@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="New_configuration" project="fr.tp.inf112.projects.robotsim" tests="1" started="1" failures="0" errors="1" ignored="0">
+  <testsuite name="fr.tp.inf112.projects.robotsim.app.TestRobotSimSerializationJSON" time="0.15" displayname="TestRobotSimSerializationJSON" uniqueid="[engine:junit-jupiter]/[class:fr.tp.inf112.projects.robotsim.app.TestRobotSimSerializationJSON]">
+    <testcase name="test" classname="fr.tp.inf112.projects.robotsim.app.TestRobotSimSerializationJSON" time="0.15" displayname="test()" uniqueid="[engine:junit-jupiter]/[class:fr.tp.inf112.projects.robotsim.app.TestRobotSimSerializationJSON]/[method:test()]">
+      <error>com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException: Unrecognized field "shape" (class fr.tp.inf112.projects.robotsim.model.Room), not marked as ignorable (6 known properties: "doors", "areas", "positionedShape", "factory", "id", "name"])
+ at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 1, column: 698] (through reference chain: fr.tp.inf112.projects.robotsim.model.Factory["components"]-&gt;java.util.ArrayList[0]-&gt;fr.tp.inf112.projects.robotsim.model.Room["shape"])&#13;
+	at com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException.from(UnrecognizedPropertyException.java:61)&#13;
+	at com.fasterxml.jackson.databind.DeserializationContext.handleUnknownProperty(DeserializationContext.java:1153)&#13;
+	at com.fasterxml.jackson.databind.deser.std.StdDeserializer.handleUnknownProperty(StdDeserializer.java:2241)&#13;
+	at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.handleUnknownProperty(BeanDeserializerBase.java:1793)&#13;
+	at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.handleUnknownVanilla(BeanDeserializerBase.java:1771)&#13;
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:316)&#13;
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:177)&#13;
+	at com.fasterxml.jackson.databind.jsontype.impl.AsArrayTypeDeserializer._deserialize(AsArrayTypeDeserializer.java:120)&#13;
+	at com.fasterxml.jackson.databind.jsontype.impl.AsArrayTypeDeserializer.deserializeTypedFromObject(AsArrayTypeDeserializer.java:61)&#13;
+	at com.fasterxml.jackson.databind.deser.AbstractDeserializer.deserializeWithType(AbstractDeserializer.java:263)&#13;
+	at com.fasterxml.jackson.databind.deser.std.CollectionDeserializer._deserializeFromArray(CollectionDeserializer.java:363)&#13;
+	at com.fasterxml.jackson.databind.deser.std.CollectionDeserializer.deserialize(CollectionDeserializer.java:246)&#13;
+	at com.fasterxml.jackson.databind.deser.std.CollectionDeserializer.deserialize(CollectionDeserializer.java:30)&#13;
+	at com.fasterxml.jackson.databind.jsontype.impl.AsArrayTypeDeserializer._deserialize(AsArrayTypeDeserializer.java:120)&#13;
+	at com.fasterxml.jackson.databind.jsontype.impl.AsArrayTypeDeserializer.deserializeTypedFromArray(AsArrayTypeDeserializer.java:53)&#13;
+	at com.fasterxml.jackson.databind.deser.std.CollectionDeserializer.deserializeWithType(CollectionDeserializer.java:285)&#13;
+	at com.fasterxml.jackson.databind.deser.SettableBeanProperty.deserialize(SettableBeanProperty.java:542)&#13;
+	at com.fasterxml.jackson.databind.deser.impl.ManagedReferenceProperty.deserializeAndSet(ManagedReferenceProperty.java:62)&#13;
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:310)&#13;
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:177)&#13;
+	at com.fasterxml.jackson.databind.jsontype.impl.AsArrayTypeDeserializer._deserialize(AsArrayTypeDeserializer.java:120)&#13;
+	at com.fasterxml.jackson.databind.jsontype.impl.AsArrayTypeDeserializer.deserializeTypedFromObject(AsArrayTypeDeserializer.java:61)&#13;
+	at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.deserializeWithType(BeanDeserializerBase.java:1380)&#13;
+	at com.fasterxml.jackson.databind.deser.impl.TypeWrappedDeserializer.deserialize(TypeWrappedDeserializer.java:74)&#13;
+	at com.fasterxml.jackson.databind.deser.DefaultDeserializationContext.readRootValue(DefaultDeserializationContext.java:342)&#13;
+	at com.fasterxml.jackson.databind.ObjectMapper._readMapAndClose(ObjectMapper.java:4905)&#13;
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3848)&#13;
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3816)&#13;
+	at fr.tp.inf112.projects.robotsim.app.TestRobotSimSerializationJSON.test(TestRobotSimSerializationJSON.java:100)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+&#13;
+</error>
+    </testcase>
+  </testsuite>
+</testrun>

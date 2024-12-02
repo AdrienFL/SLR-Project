@@ -1,0 +1,54 @@
+package com.example.demo;
+
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.util.List;
+
+import fr.tp.inf112.projects.robotsim.app.SimulatorController;
+import fr.tp.inf112.projects.robotsim.model.Factory;
+import fr.tp.inf112.projects.robotsim.model.FactoryPersistenceManager;
+
+public class RemoteSimulatorController extends SimulatorController {
+
+	
+	public RemoteSimulatorController(FactoryPersistenceManager persistenceManager) {
+		super(persistenceManager);
+
+	}
+	
+
+	@Override
+	public void startAnimation() {
+		factoryModel.startSimulation();
+		
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void stopAnimation() {
+		factoryModel.stopSimulation();
+	}
+
+	private void updateViewer() throws InterruptedException, URISyntaxException, IOException{
+		while(((Factory) getCanvas()).isSimulationStarted()) {
+			final Factory remoteFactoryModel = getFactory();
+			setCanvas(remoteFactoryModel);
+			Thread.sleep(100);
+		}
+	}
+	
+	@Override
+	public void setCanvas(final Canvas canvasModel) {
+		final List<Observer> observers = ((Factory) getCanvas()).getObservers();
+		
+		super.setCanvas(canvasModel);
+		
+		for(final Observer observer : observers) {
+			((Factory) getCanvas()).addObserver(observer);
+		}
+		
+		((Factory) getCanvas()).notifyObservers();
+	}
+}

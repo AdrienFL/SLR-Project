@@ -1,0 +1,28 @@
+package server;
+
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+public class WebServer {
+	public static void main(String args[]) {
+		try(ServerSocket serverSocket = new ServerSocket(80);) {
+			do {
+				try {
+					System.out.println('aaaz');
+					Socket socket = serverSocket.accept();
+					Runnable reqProcessor = new RequestProcessor(socket);
+					Runnable ClientProcessor = new ClientProcessor();
+					new Thread(ClientProcessor).start();
+					new Thread(reqProcessor).start();
+
+				}
+				catch (IOException ex) {
+					ex.printStackTrace();
+				}
+			} while (true);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+}

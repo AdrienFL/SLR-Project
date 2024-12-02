@@ -1,0 +1,54 @@
+package server;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.PrintWriter;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+public class WebServer {
+	public static void main(String args[]) {
+		try(ServerSocket serverSocket = new ServerSocket(80);) {
+			do {
+				try {
+					System.out.println("waiting for connection");
+					Runnable ClientProcessor = new ClientProcessor();
+					Thread clientThread = new Thread(ClientProcessor);
+					clientThread.start();
+					
+					Socket clientsocket = serverSocket.accept();
+					Runnable reqProcessor = new RequestProcessor(clientsocket);					
+					InputStream inpStr = clientsocket.getInputStream();
+
+					InputStreamReader strReader = new InputStreamReader(inpStr);
+					BufferedReader buffReader = new BufferedReader(strReader);
+					
+					String message;
+					
+				
+					message = buffReader.readLine();
+						
+					
+					System.out.println(message + " : server");
+					
+					OutputStream outStr = clientsocket.getOutputStream();
+					PrintWriter writer = new PrintWriter(outStr, true);
+					
+					writer.write(message);
+					outStr.close();
+					inpStr.close();
+					
+
+				}
+				catch (IOException ex) {
+					ex.printStackTrace();
+				}
+			} while (false);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+}

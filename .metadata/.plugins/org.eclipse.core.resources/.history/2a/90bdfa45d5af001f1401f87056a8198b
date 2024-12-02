@@ -1,0 +1,21 @@
+package com.example.demo;
+
+public class Snippet {
+	HttpClient httpClient = HttpClient.newHttpClient();
+			
+			try {
+				final URI uri = new URI("http", null, "localhost", 8080, "/simulation/test.factory", null, null);
+				HttpRequest request = HttpRequest.newBuilder().uri(uri).GET().build();
+				HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+				ObjectMapper objectMapper = new ObjectMapper();
+				Factory factory = objectMapper.readValue(response.body(), Factory.class);
+				
+			} catch (URISyntaxException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+}
+
