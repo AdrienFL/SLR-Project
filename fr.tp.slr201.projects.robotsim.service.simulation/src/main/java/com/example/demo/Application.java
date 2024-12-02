@@ -93,7 +93,7 @@ public class Application {
 			LOGGER.info("start simulation...");
 			f.startSimulation();
 			f.setSimulationStarted(true);
-			System.out.println(f.getSimulationStarted());
+
 			return objectMapper.writeValueAsString(f);
 		} catch (ClassNotFoundException | IOException ex) {
 			LOGGER.severe(ex.getMessage());

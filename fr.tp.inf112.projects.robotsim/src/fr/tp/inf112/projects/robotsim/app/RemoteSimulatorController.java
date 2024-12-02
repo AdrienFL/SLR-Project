@@ -8,6 +8,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -21,7 +22,8 @@ import fr.tp.inf112.projects.robotsim.model.RemoteFactoryPersistenceManager;
 public class RemoteSimulatorController extends SimulatorController {
 
 	private RemoteFactoryPersistenceManager persistenceManager;
-	
+	private static final Logger LOGGER = Logger.getLogger(RemoteSimulatorController.class.getName());
+
 	Thread update;
 	Factory myFactoryModel;
 	
@@ -51,7 +53,7 @@ public class RemoteSimulatorController extends SimulatorController {
 			try {
 				updateViewer();
 			} catch (InterruptedException | URISyntaxException | IOException e) {
-				e.printStackTrace();
+				LOGGER.severe(e.getMessage());
 			}
 		});
 		update.run();
@@ -80,10 +82,10 @@ public class RemoteSimulatorController extends SimulatorController {
 				Factory factory;
 				factory = objectMapper.readValue(response.body(), Factory.class);
 			} catch (IOException | InterruptedException e) {
-				e.printStackTrace();
+				LOGGER.severe(e.getMessage());
 			}
 		} catch (URISyntaxException e) {
-			e.printStackTrace();
+			LOGGER.severe(e.getMessage());
 		}
 	}
 	
@@ -103,10 +105,10 @@ public class RemoteSimulatorController extends SimulatorController {
 				factory = objectMapper.readValue(response.body(), Factory.class);
 				return factory;
 			} catch (IOException | InterruptedException e) {
-				e.printStackTrace();
+				LOGGER.severe(e.getMessage());
 			}
 		} catch (URISyntaxException e) {
-			e.printStackTrace();
+			LOGGER.severe(e.getMessage());
 		}
 		
 		return null;

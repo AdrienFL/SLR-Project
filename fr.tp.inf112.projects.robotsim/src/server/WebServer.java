@@ -3,9 +3,16 @@ package server;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.logging.Logger;
+
+import fr.tp.inf112.projects.robotsim.app.RemoteSimulatorController;
 
 public class WebServer {
 	public static void main(String args[]) {
+		
+		final Logger LOGGER = Logger.getLogger(WebServer.class.getName());
+
+		
 		try(ServerSocket serverSocket = new ServerSocket(80);) {
 			do {
 				try {	
@@ -15,11 +22,11 @@ public class WebServer {
 					reqThread.start();
 				}
 				catch (IOException ex) {
-					ex.printStackTrace();
+					LOGGER.severe(ex.getMessage());
 				}
 			} while (true);
 		} catch (IOException e) {
-			e.printStackTrace();
+			LOGGER.severe(e.getMessage());
 		}
 	}
 }

@@ -29,14 +29,13 @@ public class ClientProcessor implements Runnable {
 				
 				OutputStream outStr = socket.getOutputStream();
 				PrintWriter writer = new PrintWriter(outStr, false);
-				String message = "bite";
+				String message = "coucou";
 				
 				
 				
-				writer.write("caca\n");
+				writer.write("a\n");
 				writer.flush();
 				
-				System.out.println("aaaz");
 				
 				
 				InputStream inpStr = socket.getInputStream();
