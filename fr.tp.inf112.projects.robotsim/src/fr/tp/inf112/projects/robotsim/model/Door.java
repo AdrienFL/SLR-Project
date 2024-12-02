@@ -95,7 +95,7 @@ public class Door extends Component {
 	
 	public Door() {
 		
-		this(new Room(), WALL.TOP, 0, 0, false, null);
+		this(new Room(), WALL.TOP, 0, 0, true, null);
 		
 	}
 	

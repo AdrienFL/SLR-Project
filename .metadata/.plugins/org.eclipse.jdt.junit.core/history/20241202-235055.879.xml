@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="New_configuration" project="fr.tp.inf112.projects.robotsim" tests="1" started="1" failures="0" errors="0" ignored="0">
+  <testsuite name="fr.tp.inf112.projects.robotsim.app.TestRobotSimSerializationJSON" time="0.142" displayname="TestRobotSimSerializationJSON" uniqueid="[engine:junit-jupiter]/[class:fr.tp.inf112.projects.robotsim.app.TestRobotSimSerializationJSON]">
+    <testcase name="test" classname="fr.tp.inf112.projects.robotsim.app.TestRobotSimSerializationJSON" time="0.142" displayname="test()" uniqueid="[engine:junit-jupiter]/[class:fr.tp.inf112.projects.robotsim.app.TestRobotSimSerializationJSON]/[method:test()]"/>
+  </testsuite>
+</testrun>

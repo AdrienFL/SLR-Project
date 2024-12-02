@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="New_configuration" project="fr.tp.inf112.projects.robotsim" tests="1" started="1" failures="0" errors="1" ignored="0">
+  <testsuite name="fr.tp.inf112.projects.robotsim.app.TestRobotSimSerializationJSON" time="0.078" displayname="TestRobotSimSerializationJSON" uniqueid="[engine:junit-jupiter]/[class:fr.tp.inf112.projects.robotsim.app.TestRobotSimSerializationJSON]">
+    <testcase name="test" classname="fr.tp.inf112.projects.robotsim.app.TestRobotSimSerializationJSON" time="0.078" displayname="test()" uniqueid="[engine:junit-jupiter]/[class:fr.tp.inf112.projects.robotsim.app.TestRobotSimSerializationJSON]/[method:test()]">
+      <error>com.fasterxml.jackson.databind.JsonMappingException: Cannot invoke "fr.tp.inf112.projects.robotsim.model.Factory.isSimulationStarted()" because the return value of "fr.tp.inf112.projects.robotsim.model.Component.getFactory()" is null (through reference chain: fr.tp.inf112.projects.robotsim.model.Factory["simulationstarted"])&#13;
+	at com.fasterxml.jackson.databind.JsonMappingException.wrapWithPath(JsonMappingException.java:402)&#13;
+	at com.fasterxml.jackson.databind.JsonMappingException.wrapWithPath(JsonMappingException.java:361)&#13;
+	at com.fasterxml.jackson.databind.ser.std.StdSerializer.wrapAndThrow(StdSerializer.java:323)&#13;
+	at com.fasterxml.jackson.databind.ser.std.BeanSerializerBase.serializeFields(BeanSerializerBase.java:778)&#13;
+	at com.fasterxml.jackson.databind.ser.std.BeanSerializerBase.serializeWithType(BeanSerializerBase.java:653)&#13;
+	at com.fasterxml.jackson.databind.ser.impl.TypeWrappedSerializer.serialize(TypeWrappedSerializer.java:32)&#13;
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider._serialize(DefaultSerializerProvider.java:502)&#13;
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider.serializeValue(DefaultSerializerProvider.java:341)&#13;
+	at com.fasterxml.jackson.databind.ObjectMapper._writeValueAndClose(ObjectMapper.java:4799)&#13;
+	at com.fasterxml.jackson.databind.ObjectMapper.writeValueAsString(ObjectMapper.java:4040)&#13;
+	at fr.tp.inf112.projects.robotsim.app.TestRobotSimSerializationJSON.test(TestRobotSimSerializationJSON.java:117)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: java.lang.NullPointerException: Cannot invoke "fr.tp.inf112.projects.robotsim.model.Factory.isSimulationStarted()" because the return value of "fr.tp.inf112.projects.robotsim.model.Component.getFactory()" is null&#13;
+	at fr.tp.inf112.projects.robotsim.model.Component.isSimulationstarted(Component.java:162)&#13;
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:688)&#13;
+	at com.fasterxml.jackson.databind.ser.std.BeanSerializerBase.serializeFields(BeanSerializerBase.java:770)&#13;
+	... 10 more&#13;
+&#13;
+</error>
+    </testcase>
+  </testsuite>
+</testrun>

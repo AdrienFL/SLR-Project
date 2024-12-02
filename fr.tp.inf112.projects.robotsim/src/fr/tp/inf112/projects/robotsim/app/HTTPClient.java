@@ -49,9 +49,9 @@ public class HTTPClient {
 			if (!readResponse) {
 				return null;
 			}
-
+			LOGGER.info(response.body());
 			Factory factory = objectMapper.readValue(response.body(), Factory.class);
-			LOGGER.info(factory.toString());
+			
 			return factory;
 		} catch (IOException | InterruptedException e) {
 			LOGGER.severe(e.getMessage());

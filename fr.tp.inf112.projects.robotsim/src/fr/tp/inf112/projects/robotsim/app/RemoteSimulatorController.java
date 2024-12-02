@@ -115,6 +115,7 @@ public class RemoteSimulatorController extends SimulatorController {
 
 
 	private void updateViewer() throws InterruptedException, URISyntaxException, IOException {
+		System.out.println(((Factory) getCanvas()).isSimulationStarted());
 		while (((Factory) getCanvas()).isSimulationStarted()) {
 			HTTPClient client = new HTTPClient("/start/" + getCanvas().getId());
 			Factory f = client.requestFactory(true);

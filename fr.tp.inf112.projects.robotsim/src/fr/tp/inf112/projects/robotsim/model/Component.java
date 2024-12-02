@@ -158,14 +158,14 @@ public abstract class Component implements Figure, Serializable, Runnable {
 	}
 	
 	@JsonIgnore
-	public boolean isSimulationStarted() {
+	public boolean isSimulationtarted() {
 		return getFactory().isSimulationStarted();
 	}
 	
 	
 	@Override
 	public void run() {
-		while(isSimulationStarted()) {
+		while(isSimulationtarted()) {
 			behave();
 			try {
 				Thread.sleep(50);
